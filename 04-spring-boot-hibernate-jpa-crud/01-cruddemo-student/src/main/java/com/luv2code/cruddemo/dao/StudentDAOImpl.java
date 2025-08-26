@@ -2,8 +2,11 @@ package com.luv2code.cruddemo.dao;
 
 import com.luv2code.cruddemo.entity.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 @Repository
@@ -27,4 +30,31 @@ private EntityManager entityManager;
     public void save(Student theStudent) {
         entityManager.persist(theStudent);
     }
+
+    @Override
+    public Student findById(Integer id) {
+        return entityManager.find(Student.class,id);
+    }
+
+    @Override
+    public List<Student> findAll() {
+        //create Query
+        TypedQuery<Student> theQuery = entityManager.createQuery("From Student order by lastName desc", Student.class);
+
+        //return Query
+        return theQuery.getResultList();
+    }
+
+    @Override
+    public List<Student> findByLastName(String lastname) {
+
+        //create Query
+        TypedQuery<Student> theQuery= entityManager.createQuery("From Student where lastName=:theData", Student.class);
+
+        //setParameters
+        theQuery.setParameter("theData",lastname);
+        return theQuery.getResultList();
+    }
+
+
 }
