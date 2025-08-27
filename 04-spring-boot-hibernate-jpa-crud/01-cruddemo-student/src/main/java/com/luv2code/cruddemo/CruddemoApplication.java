@@ -27,8 +27,50 @@ public class CruddemoApplication {
 
 //			queryForStudents(studentDAO);
 
-			queryToFindStudentByLastName(studentDAO);
+//			queryToFindStudentByLastName(studentDAO);
+
+//			updateTheStudentName(studentDAO);
+
+//			deleteStudentName(studentDAO);
+
+			deleteAllStudent(studentDAO);
 		};
+	}
+
+	private void deleteAllStudent(StudentDAO studentDAO) {
+		System.out.println("Delete All Students");
+
+		int rows=studentDAO.deleteAll();
+
+		System.out.println(rows);
+	}
+
+	private void deleteStudentName(StudentDAO studentDAO) {
+
+		int studentId=3;
+		System.out.println("deleteting student with id: "+ studentId);
+
+		studentDAO.delete(studentId);
+	}
+
+	private void updateTheStudentName(StudentDAO studentDAO) {
+
+		//retrieve student based on id
+		int i=1;
+		Student mystudent=studentDAO.findById(i);
+		System.out.println("retrieve student based on id");
+
+		//change the student first name
+		mystudent.setFirstName("scooby");
+		System.out.println("change the name");
+
+		//update the student name in bd
+		studentDAO.updateStudentName(mystudent);
+		System.out.println("updated the name of student");
+
+		//print the updated name
+		System.out.println("updates mystudent row: " +mystudent);
+
 	}
 
 	private void queryToFindStudentByLastName(StudentDAO studentDAO) {
