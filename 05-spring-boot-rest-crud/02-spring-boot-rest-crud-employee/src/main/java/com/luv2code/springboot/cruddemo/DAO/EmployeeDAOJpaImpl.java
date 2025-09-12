@@ -1,6 +1,5 @@
-package com.luv2code.springboot.cruddemo;
+package com.luv2code.springboot.cruddemo.DAO;
 
-import com.luv2code.springboot.cruddemo.DAO.EmployeeDAO;
 import com.luv2code.springboot.cruddemo.entity.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
@@ -32,5 +31,30 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
         List<Employee> employees = theQuery.getResultList();
         //return the results
         return employees;
+    }
+
+    @Override
+    public Employee findById(int ID) {
+
+        Employee employee = entityManager.find(Employee.class,ID);
+
+        return employee;
+    }
+
+    @Override
+    public Employee save(Employee theEmployee) {
+
+        Employee employee = entityManager.merge(theEmployee);
+
+        return employee;
+    }
+
+    @Override
+    public void deleteById(int id) {
+
+        //get employee by id
+        Employee employee=entityManager.find(Employee.class, id);
+        //remove it
+        entityManager.remove(employee);
     }
 }
