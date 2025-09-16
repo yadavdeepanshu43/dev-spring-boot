@@ -2,5 +2,6 @@
 /Users/dipanshuyadav/Downloads/dev-spring-boot/05-spring-boot-rest-security/00-spring-boot-rest-security-employee-starter-code/src/main/java/com/luv2code/springboot/cruddemo/dao/EmployeeRepository.java
 /Users/dipanshuyadav/Downloads/dev-spring-boot/05-spring-boot-rest-security/00-spring-boot-rest-security-employee-starter-code/src/main/java/com/luv2code/springboot/cruddemo/entity/Employee.java
 /Users/dipanshuyadav/Downloads/dev-spring-boot/05-spring-boot-rest-security/00-spring-boot-rest-security-employee-starter-code/src/main/java/com/luv2code/springboot/cruddemo/rest/EmployeeRestController.java
+/Users/dipanshuyadav/Downloads/dev-spring-boot/05-spring-boot-rest-security/00-spring-boot-rest-security-employee-starter-code/src/main/java/com/luv2code/springboot/cruddemo/security/DemoSecurityConfig.java
 /Users/dipanshuyadav/Downloads/dev-spring-boot/05-spring-boot-rest-security/00-spring-boot-rest-security-employee-starter-code/src/main/java/com/luv2code/springboot/cruddemo/service/EmployeeService.java
 /Users/dipanshuyadav/Downloads/dev-spring-boot/05-spring-boot-rest-security/00-spring-boot-rest-security-employee-starter-code/src/main/java/com/luv2code/springboot/cruddemo/service/EmployeeServiceImpl.java

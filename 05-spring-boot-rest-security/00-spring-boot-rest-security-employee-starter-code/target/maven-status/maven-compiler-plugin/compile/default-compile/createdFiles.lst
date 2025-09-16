@@ -1,4 +1,5 @@
 com/luv2code/springboot/cruddemo/dao/EmployeeRepository.class
+com/luv2code/springboot/cruddemo/security/DemoSecurityConfig.class
 com/luv2code/springboot/cruddemo/service/EmployeeServiceImpl.class
 com/luv2code/springboot/cruddemo/rest/EmployeeRestController.class
 com/luv2code/springboot/cruddemo/entity/Employee.class
