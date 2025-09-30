@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -39,14 +40,14 @@ public class HelloWorldController {
         return "helloWorld";
     }
 
-    @GetMapping("/processFormVersionThree")
+    @PostMapping("/processFormVersionThree")
     public String processFormVersionThree(@RequestParam("studentName") String theName, Model model){
-        System.out.println("processFormVersionThree method called with studentName: " + theName);
+//        System.out.println("processFormVersionThree method called with studentName: " + theName);
         // convert the data into all caps
         theName=theName.toUpperCase();
 
         //create the message
-        String result= "Process from from version 3 " + theName;
+        String result= "Process form from version 3 " + theName;
         //add the message to model
         model.addAttribute("message",result);
 
