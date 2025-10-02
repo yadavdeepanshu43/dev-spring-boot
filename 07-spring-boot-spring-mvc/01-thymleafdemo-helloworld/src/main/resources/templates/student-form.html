@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title> Student Registration Form</title>
+</head>
+<body>
+
+<h3> Student Registration Form</h3>
+
+<form th:action="@{ProcessStudentForm}" th:object="${student}" method="POST">
+
+  First Name: <input type="text" th:field="*{firstName}" />
+  <br> <br>
+  
+  Last Name: <input type="text" th:field="*{lastName}" />
+  <br> <br>
+
+  <input type="submit" value="Submit">
+
+  <br> <br>
+
+  <select th:field="*{country}">
+    <option th:value="Brazil"> Brazil</option>
+    <option th:value="France"> France</option>
+    <option th:value="Germany"> Germany</option>
+    <option th:value="India"> India</option>
+
+
+
+  </select>
+  
+  
+
+</form>
+
+</body>
+</html>
