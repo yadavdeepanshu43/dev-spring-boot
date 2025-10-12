@@ -33,8 +33,10 @@ public class CustomerController {
     @PostMapping("/processForm")
     public String processForm(@Valid @ModelAttribute("customer") Customer theCustomer, BindingResult theBindingResult)
     {
+        System.out.println("Last Name |"+theCustomer.getLastName()+"|");
+        System.out.println("Custom binding errors:"+theBindingResult.toString());
         if(theBindingResult.hasErrors()){
-            System.out.println("Last Name |"+theCustomer.getLastName()+"|");
+
             return "customer-form";
 
         }
