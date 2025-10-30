@@ -13,19 +13,19 @@ public class DemoSecurityConfig {
     @Bean
     public InMemoryUserDetailsManager UserDetails(){
         UserDetails john= User.builder()
-                .username("John")
+                .username("john")
                 .password("{noop}test123")
                 .roles("EMPLOYEE")
                 .build();
 
         UserDetails mary= User.builder()
-                .username("Mary")
+                .username("mary")
                 .password("{noop}test123")
                 .roles("EMPLOYEE","MANAGER")
                 .build();
 
         UserDetails susan= User.builder()
-                .username("Susan")
+                .username("susan")
                 .password("{noop}test123")
                 .roles("EMPLOYEE","MANAGER","ADMIN")
                 .build();
@@ -38,6 +38,9 @@ public class DemoSecurityConfig {
 
         http.authorizeHttpRequests(configurer ->
                 configurer
+                        .requestMatchers("/").hasRole("EMPLOYEE")
+                        .requestMatchers("/leaders/**").hasRole("MANAGER")
+                        .requestMatchers("/systems/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin( form->
