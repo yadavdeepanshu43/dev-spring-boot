@@ -23,20 +23,27 @@
 <hr>
 
 <!--Add a links to point out leaders ... this is for manager-->
+<div sec:authorize="hasRole('MANAGER')">
 <p>
     <a th:href="@{/leaders}">Leadership Meeting</a>
     (Only for Manager peeps)
 </p>
-<hr>
+    <hr>
+</div>
 
-<hr>
+
+
 
 <!--Add a links to point out systems ... this is for ADMIN-->
+<div sec:authorize="hasRole('ADMIN')">
+    <hr>
 <p>
     <a th:href="@{/systems}">It Systems Meeting</a>
     (Only for Admin peeps)
 </p>
-<hr>
+    <hr>
+</div>
+
 
 <form action="#" th:action="@{/showMyLoginPage}">
     <input type="submit" value="Logout"/>
