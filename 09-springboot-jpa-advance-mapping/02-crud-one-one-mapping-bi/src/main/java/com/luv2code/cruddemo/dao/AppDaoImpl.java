@@ -54,6 +54,7 @@ public class AppDaoImpl implements AppDao{
         //get instructor details
         InstructorDetails tempInstructorDetails = entityManager.find(InstructorDetails.class,id);
 
+        tempInstructorDetails.getInstructor().setInstructorDetails(null);
         entityManager.remove(tempInstructorDetails);
 
         System.out.println("done");
