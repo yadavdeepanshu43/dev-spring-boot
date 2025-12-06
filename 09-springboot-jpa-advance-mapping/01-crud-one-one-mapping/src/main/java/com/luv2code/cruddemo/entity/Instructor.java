@@ -3,7 +3,7 @@ package com.luv2code.cruddemo.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="")
+@Table(name="instructor")
 public class Instructor {
 
     //annotate the class as entity and map it to db table
@@ -17,6 +17,8 @@ public class Instructor {
     //create constructor
 
     //generate getters/setters
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
 

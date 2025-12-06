@@ -1,5 +1,8 @@
 package com.luv2code.cruddemo;
 
+import com.luv2code.cruddemo.dao.AppDao;
+import com.luv2code.cruddemo.entity.Instructor;
+import com.luv2code.cruddemo.entity.InstructorDetails;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +16,52 @@ public class CruddemoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(String args[]){
+	public CommandLineRunner commandLineRunner(AppDao appDao){
 
 		return runner->{
-			System.out.println("hello world");
+//			createInstructor(appDao);
+//			findInstructor(appDao);
+			deleteInstructor(appDao);
 		};
 	}
+
+	private void deleteInstructor(AppDao appDao) {
+
+		int id=2;
+		System.out.println("Delete instructor by Id:"+id);
+
+		appDao.deleteInstructorById(id);
+	}
+
+	private void findInstructor(AppDao appDao) {
+		int id=2;
+		System.out.println("Find Instructor by Id: "+ id);
+
+		Instructor tempInstructor =appDao.findInstructorById(id);
+		System.out.println("Temp instructor: " +tempInstructor);
+		System.out.println(" Association table: "+ tempInstructor.getInstructorDetails());
+	}
+
+	private void createInstructor(AppDao appDao) {
+
+//		Instructor tempInstructor=new Instructor("Dipanshu","Yadav","yadavdeepanshu43@gmail.com");
+//
+//		InstructorDetails tempInstructorDetail= new InstructorDetails("http://www.youtubechannel.com","cricket");
+
+		Instructor tempInstructor=new Instructor("Piyush","Kumar","piyushKumar43@gmail.com");
+
+		InstructorDetails tempInstructorDetail= new InstructorDetails("http://www.piyushchannel.com","Hockey");
+
+		//associate the objects
+		tempInstructor.setInstructorDetails(tempInstructorDetail);
+
+		//save the instructor
+		//
+  		// this will also save the instructordetails
+		//
+		System.out.println("saving the instructor: " + tempInstructor);
+		appDao.save(tempInstructor);
+		System.out.println("done");
+	}
+
 }
