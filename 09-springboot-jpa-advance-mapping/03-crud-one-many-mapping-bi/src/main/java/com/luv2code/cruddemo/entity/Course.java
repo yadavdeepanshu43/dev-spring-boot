@@ -2,6 +2,8 @@ package com.luv2code.cruddemo.entity;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name="course")
 public class Course {
 
     @Id
