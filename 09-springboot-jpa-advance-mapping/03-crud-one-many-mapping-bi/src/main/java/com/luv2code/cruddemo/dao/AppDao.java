@@ -19,4 +19,6 @@ public interface AppDao {
 
     List<Course> findCourseByInstructorId(int theId);
 
+    Instructor findInstructorByIDJoinfetch(int theId);
+
 }
