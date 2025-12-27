@@ -120,4 +120,13 @@ public class AppDaoImpl implements AppDao{
     public Course findCourseById(int theId) {
         return entityManager.find(Course.class,theId);
     }
+
+    @Transactional
+    @Override
+    public void deleteCourseById(int Id) {
+
+        Course tempCourse= entityManager.find(Course.class,Id);
+        entityManager.remove(tempCourse);
+
+    }
 }
