@@ -87,5 +87,14 @@ public void addCourse(Course theCourse) {
     theCourse.addStudent(this);
 }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
 
+                '}';
+    }
 }

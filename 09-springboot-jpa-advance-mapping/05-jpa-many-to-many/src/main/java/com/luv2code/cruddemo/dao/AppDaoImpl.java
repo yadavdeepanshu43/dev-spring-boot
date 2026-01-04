@@ -3,6 +3,7 @@ package com.luv2code.cruddemo.dao;
 import com.luv2code.cruddemo.entity.Course;
 import com.luv2code.cruddemo.entity.Instructor;
 import com.luv2code.cruddemo.entity.InstructorDetails;
+import com.luv2code.cruddemo.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,5 +135,36 @@ public class AppDaoImpl implements AppDao{
     @Override
     public void save(Course theCourse) {
         entityManager.persist(theCourse);
+    }
+
+    @Override
+    public Course findCourseAndStudentsByCourseId(int theId) {
+
+        //create query
+        TypedQuery<Course> query = entityManager.createQuery("Select c from Course c "
+                                                                +"JOIN  FETCH c.students "
+                                                                +"where c.id= :data", Course.class
+        );
+
+        query.setParameter("data",theId);
+
+        //execute query
+        Course course=query.getSingleResult();
+        return course;
+    }
+
+    @Override
+    public Student findStudentAndCourseByStudentId(int id) {
+
+        //create query
+        TypedQuery<Student> query=entityManager.createQuery("select s from Student s "
+                + "JOIN FETCH s.courses "
+                + "where s.id = :data", Student.class);
+
+        query.setParameter("data",id);
+
+        //execute query
+        Student student=query.getSingleResult();
+        return student;
     }
 }
