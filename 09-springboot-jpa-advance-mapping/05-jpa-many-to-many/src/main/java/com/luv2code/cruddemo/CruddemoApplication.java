@@ -28,7 +28,8 @@ public class CruddemoApplication {
 //			findCourseAndStudents(appDao);
 //			findStudentsAndCourses(appDao);
 
-			addMoreCoursesForStudent(appDao);
+//			addMoreCoursesForStudent(appDao);
+			deleteCourse(appDao);
 
 		};
 	}

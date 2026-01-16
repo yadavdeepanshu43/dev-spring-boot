@@ -170,6 +170,20 @@ public class AppDaoImpl implements AppDao{
 
     @Transactional
     @Override
+    public void deleteStudentById(int id) {
+
+        //retrieve the student
+
+        //get the courses
+
+        //break association of all courses for the student
+
+        //Now delete the student
+
+    }
+
+    @Transactional
+    @Override
     public void update(Student tempStudent) {
         entityManager.merge(tempStudent);
     }
