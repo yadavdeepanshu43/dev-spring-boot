@@ -24,6 +24,12 @@ public class AopdemoApplication {
 
 		//call the business method
 		theAccountDao.addAccount();
+
+		//Do it again
+		System.out.println("\n lets call it again!\n");
+
+		//call the business method again
+		theAccountDao.addAccount();
 	}
 
 }
