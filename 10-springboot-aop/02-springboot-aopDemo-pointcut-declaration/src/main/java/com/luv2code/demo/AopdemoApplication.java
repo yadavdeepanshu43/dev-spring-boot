@@ -29,13 +29,6 @@ public class AopdemoApplication {
 		theAccountDao.addAccount(theAccount,true);
 		theAccountDao.doWork();
 
-		//call the accountdao getter and setter methods
-		theAccountDao.setName("Footer");
-		theAccountDao.setServiceCode("1234");
-
-		String name= theAccountDao.getName();
-		String serviceCode= theAccountDao.getServiceCode();
-
 		theMembershipDAO.addAccount();
 		theMembershipDAO.goToSleep();
 
