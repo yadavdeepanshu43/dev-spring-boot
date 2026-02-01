@@ -28,9 +28,14 @@ public class AopdemoApplication {
 		//call the business method
 		theAccountDao.addAccount(theAccount,true);
 		theAccountDao.doWork();
+		theAccountDao.setServiceCode("1234");
+		theAccountDao.setName("Computer");
+		String serviceCode=theAccountDao.getServiceCode();
+		String name=theAccountDao.getName();
 
 		theMembershipDAO.addAccount();
 		theMembershipDAO.goToSleep();
+
 
 
 //		//Do it again
