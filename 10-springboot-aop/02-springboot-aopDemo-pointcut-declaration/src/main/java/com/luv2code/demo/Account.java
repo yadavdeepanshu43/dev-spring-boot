@@ -2,6 +2,13 @@ package com.luv2code.demo;
 
 public class Account {
 
+    public Account(){}
+
+    public Account(String name, String level) {
+        this.name = name;
+        this.level = level;
+    }
+
     private String name;
 
     public String getName() {
@@ -21,4 +28,12 @@ public class Account {
     }
 
     private String level;
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "name='" + name + '\'' +
+                ", level='" + level + '\'' +
+                '}';
+    }
 }
