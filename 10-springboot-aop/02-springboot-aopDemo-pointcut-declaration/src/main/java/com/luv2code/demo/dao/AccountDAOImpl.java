@@ -11,6 +11,8 @@ public class AccountDAOImpl implements AccountDAO{
 
     private String name;
 
+
+
     public String getServiceCode() {
 
         System.out.println("getServiceCode()");
@@ -37,7 +39,17 @@ public class AccountDAOImpl implements AccountDAO{
 
     @Override
     public List<Account> findAccount() {
+        return findAccount(false);
 
+    }
+
+    @Override
+    public List<Account> findAccount(boolean tripWire) {
+
+        //for academic purpose .. simulate the exception
+        if(tripWire){
+            throw new RuntimeException("No soup for you !!!");
+        }
         List<Account> myAccounts = new ArrayList<>();
 
         //create sample accounts
